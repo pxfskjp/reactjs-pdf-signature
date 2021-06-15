@@ -64,14 +64,15 @@ function App() {
       await delay(2000);
 
       const PDFElement = document.getElementsByClassName('react-pdf__Document')[0];
+      const heights = PDFElement.offsetHeight + 300;
 
       await html2canvas(PDFElement, {
         quality: 10,
-        height: PDFElement.offsetHeight,
+        height: heights,
         scrollY: -window.scrollY,
         scrollX: -window.scrollX,
         windowHeight:
-        PDFElement.offsetHeight,
+            PDFElement.offsetHeight+300,
       }).then((canvas) => {
           const imgData = canvas.toDataURL("image/png");
           if(i === 1) {
