@@ -66,6 +66,7 @@ function App() {
       const PDFElement = document.getElementsByClassName('react-pdf__Document')[0];
 
       await html2canvas(PDFElement, {
+        quality: 10,
         height: PDFElement.offsetHeight,
         scrollY: -window.scrollY,
         scrollX: -window.scrollX,
