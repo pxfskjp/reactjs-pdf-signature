@@ -67,14 +67,14 @@ function App() {
       const heights = PDFElement.offsetHeight;
 
       await html2canvas(PDFElement, {
-        quality: 10,
+        quality: 100,
         height: heights,
         scrollY: -window.scrollY,
         scrollX: -window.scrollX,
         windowHeight:
             PDFElement.offsetHeight,
       }).then((canvas) => {
-          const imgData = canvas.toDataURL("image/png");
+          const imgData = canvas.toDataURL("image/png", 1.0);
           if(i === 1) {
             pdf = new jsPDF("", "pt", [canvas.width, canvas.height]);
             pdf.addImage(
